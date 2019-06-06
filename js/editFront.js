@@ -1,5 +1,8 @@
 function texto() {
-  var d = document.createDocumentFragment();
-  d.appendChild(document.getElementById("PotherParrafo")[0]);
-  d.childNodes[0].nodeValue[0] = document.detElementById("sobreti").value;
+  if (!(window.File)) {
+      console.log('La API File no está soportada');
+  }else{
+    console.log("Que tranza");
+  }
+
 }
