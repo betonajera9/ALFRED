@@ -1,28 +1,22 @@
 const express = require('express');
-const path = require('path');
 const app = express();
-
-// const routes = require('../Routes/Index');
-const bodyParser = require('body-parser');
+const path = require('path');
+const morgan = require('morgan');
+const routes = require('../Routes/Index');
+const {client} = require('./connectDB');
 
 //Settings
 app.set('port', process.env.PORT || 4000);
 app.set('Views', path.join(__dirname, 'Views'));
 
-// app.set('view engine', 'ejs');
+//Middlewares
+app.use(morgan('dev'));
+app.use(express.json());
 
-//middlewares
-app.use((req, res, next)=> {
-  console.log(`${req.url} - ${req.method}`);
-  next();
-});
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+//Routes
+app.use('/api/login', routes);
 
-//routes
-// app.use(routes);
-
-//static files
+//Static Files
 app.use(express.static(path.join(__dirname, '../Public')));
 
 //start the server

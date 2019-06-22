@@ -1,5 +1,3 @@
-const htmlWebpackPlugin = require('html-webpack-plugin');
-
 module.exports = {
   entry: {
     index: './src/Index.jsx'
@@ -8,7 +6,7 @@ module.exports = {
     path: __dirname + '/Public/JS',
     filename: 'Index.js'
   },
-  resolve:{
+  resolve: {
     extensions: ['.js', '.jsx']
   },
   module: {
@@ -20,4 +18,4 @@ module.exports = {
       }
     ]
   }
-}
+};
