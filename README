@@ -1,1 +1,13 @@
 ->Login ALFRED<-
+Este proyecto es un login usando React, Node Js y una base de datos en un contenedor de docker con imagen de postgresql 10.
+Se montó un servidor con ayuda de express, este es un framework de NodeJs, que te ayuda a levantar el servidor de una manera mas facil. utilizamos varias dependencia como Nodemon, Morgan, Concurrently.
+El Front-End se hizo con ayuda de React, para ello utilizamos varias dependencias como WebPack y Babel.
+
+->Clone the Login ALFRED<-
+=>Necesitamos descargar la imagen de dockerHub para tener la base de datos.
+=>Instalar las dependencias de NodeJs.
+ |
+ ->Entrar a tu shell y dirigirse a la carpeta ALFRED.
+ ->Dentro de tu clase ejecutar el comando 'npm install'.
+
+=>Para iniciar el servidor es necesario usar el comando 'npm run startAlfred'
