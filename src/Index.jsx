@@ -24,10 +24,10 @@ class Form extends Component{
     .then(res => res.json())
     .then(data => {
       console.log(data);
+      this.setState({pass: ''});
     })
     .catch(err => console.log(err));
-    console.log(this.state);
-
+    evt.preventDefault();
   }
 
   handleLogin(evt) {
@@ -44,9 +44,9 @@ class Form extends Component{
         <input onChange={this.handleLogin} id='user'/>
         <br/>
         <label>Password </label>
-        <input onChange={this.handleLogin} id='pass' type='password' />
+        <input onChange={this.handleLogin} value={this.state.pass} id='pass' type='password' />
         <br/>
-        <button >hOla</button>
+        <button >Log in</button>
       </form>
     );
   }

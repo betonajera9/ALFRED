@@ -15,10 +15,7 @@ function index(req, res, next) {
     if (err) {
       next(err);
     } else {
-      // res.writeHead(200,{"Content-Type":"txt/html"})
-      // re.write('hola')
       console.log('Sent:', fileName);
-      // res.end('okay')
     }
   });
 }

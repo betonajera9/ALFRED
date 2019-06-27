@@ -6,16 +6,180 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="CSS/index.css" type="text/css">
   <title>ALFRED</title>
+
+  <!--CDN CSS DE MATERIALIZE-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!--CDN JQUERY-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!--IMPORTANDO TIPOGRAFIA ROBOTO-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <style>
+        body {
+        font-family: 'Roboto';
+        font-size: 16px;
+        }
+    </style>
+
+    <!--IMPORTANDO ICONOS DE GOOGLE-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--STYLE NAVBAR-->
+  <style>
+      /*Navbar fijo*/
+      nav {
+          z-index: 1;
+      }
+      /*Tamaño de navbar principal*/
+      #nav1 {
+          height: 100px;
+          transition: .8s;
+      }
+
+      /*Tamaño de navbar secundario*/
+      #nav2 {
+          height: 65px;
+          transition: .8s;
+      }
+      /*Tamaño minimo para pasar al diseño movil*/
+      #nav-mobile {
+          min-width: 1068px;
+      }
+      /*Etiqueta para visualizar las siglas de UNICA*/
+      #visible{
+          display : block;
+      }
+      /*Etiqueta para quitar las siglas de UNICA*/
+      #invisible{
+          display : none;
+      }
+      /*Transicion para cambiar de posicion el icono del sidenav del menú 2 al menú 1*/
+      #menu1 {
+          top: 19px;
+          transition: .8s;
+      }
+      /*Transicion para cambiar de posicion el icono de sidenav del menú 1 al menú 2*/
+      #menu2 {
+          top: 3px;
+          transition: .8s;
+      }
+      /*Transicion para cambiar de posicion del logo del menú 2 al menú 1*/
+      #logo1 {
+          top: 19px;
+          transition: .8s;
+      }
+      /*Transicion para cambiar de posicion del logo del menú 1 al menú 2*/
+      #logo2 {
+          top: 3px;
+          transition: .8s;
+      }
+      #dimension {
+          height: 60px;
+          width: 90px;
+      }
+  </style>
+
 </head>
 <body>
+  <header>
+        <!--CONTENIDO DEL NAV-BAR-->
+        <nav class="indigo darken-4 z-depth-5 nav-extended" id="nav1">
+            <div class="nav-wrapper container row">
+                <!--LOGO-->
+                <div class="col s4">
+                    <a href="" class="brand-logo" id="logo1"><img src="img/LOGOUNICA_claro.png" id="dimension"></a>
+                    <a data-target="menu-responsive" class="sidenav-trigger" id="menu1"><i class="material-icons">menu</i></a>
+                </div>
+                <!--MENU-->
+                <div class="col s8">
+                    <div id="visible">
+                        <h6 class="hide-on-med-and-down">&nbsp;&ensp;UNIDAD DE SERVICIOS DE COMPUTO ACADEMICO</h6>
+                    </div>
+                    <ul id="nav-mobile" class="hide-on-med-and-down">
+                        <li><a href="">Organización</a></li>
+                        <li><a href="">Servicios</a></li>
+                        <li><a href="">Becarios</a></li>
+                        <li><a href="">Cusos</a></li>
+                        <li><a href="">Instalaciones</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-  <div id="Root">
-    <div id="Title">
-      <h1>Bienvenido a ALFRED</h1>
-    </div>
-    <div id="Form">
+        <!--MENU RESPONSIVO-->
+        <ul class="sidenav" id="menu-responsive">
+            <li><a class="center indigo darken-4 white-text">MENÚ</a></li>
+            <li><a href=""><i class="material-icons">group</i>Organización</a></li>
+            <li><a href=""><i class="material-icons">business_center</i>Servicios</a></li>
+            <li><a href=""><i class="material-icons">person</i>Becarios</a></li>
+            <li><a href=""><i class="material-icons">school</i>Cursos</a></li>
+            <li><a href=""><i class="material-icons">location_city</i>Instalaciones</a></li>
+        </ul>
+    </header>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col s2"></div>
+      <div class="col s8" id="Root">
+        <div id="Title">
+          <h2>Welcome to ALFRED</h2>
+        </div>
+        <div id="Form">
+        </div>
+      </div>
+      <div class="col s2"></div>
     </div>
   </div>
+  <br>
+  <br>
+  <br>
+
+
+  <!--FOOTER-->
+    <footer class="page-footer indigo darken-4 z-depth-5">
+        <!--PARTE AZUL-->
+        <div class="container">
+            <div class="row">
+                <div class="col s10">
+                    <p>
+                        UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO <br>
+                        Facultad de Ingeniería, Av. Universidad 3000, <br>
+                        Ciudad Universitaria, Coyoacan, CDMX, C.P. 04510 <br>
+                        Edificio E <br>
+                        Tel.: 56 22 09 51 <br>
+                        Correo: dsa@unica.unam.mx <br>
+                    </p>
+                </div>
+                <div class="col s2 right">
+                    <p>
+                        <a class="white-text text-lighten-3" href="#!"><i class="small material-icons">insert_chart</i></a>
+                        <br>
+                        <a class="white-text text-lighten-3" href="#!"><i class="small material-icons">insert_chart</i></a>
+                        <br>
+                        <a class="white-text text-lighten-3" href="#!"><i class="small material-icons">insert_chart</i></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--PARTE AMARILLA-->
+        <div class="footer-copyright amber accent-4">
+            <div class="container center-align white-text">
+                Todos los derechos reservados &copy; 1999 - 2019 / Facultad de ingeniería / UNAM | Versión 0.1
+            </div>
+        </div>
+    </footer>
+
+
+  <!--CDN JAVASCRIPT DE MATERIALIZE-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+   <script>
+       document.addEventListener('DOMContentLoaded', function() {
+           M.AutoInit();
+       });
+   </script>
 
   <!-- scripts -->
   <script type="text/javascript" src="JS/Index.js"></script>
