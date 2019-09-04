@@ -4,29 +4,36 @@
   "description": "Login with react, express and webpack.",
   "main": "app.js",
   "scripts": {
-    "start": "node Controllers/app.js",
-    "startAlfred": "concurrently \"nodemon Controllers/app.js/\" \"npx webpack -w\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "buildAlfred": "babel src -d dist --source-maps",
+    "startAlfred": "nodemon src/controllers/app.js --exec babel-node",
+    "serveAlfred": "node dist/controllers/app.js",
+    "webpackAlfred": "webpack --mode development --watch",
+    "cleanAlfred": "rimraf dist"
   },
   "author": "BetoNajera",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^4.1.0",
+    "@apollo/react-hooks": "^3.0.1",
+    "apollo-boost": "^0.4.4",
     "express": "^4.17.1",
-    "lodash": "^4.17.11",
+    "graphql": "^14.5.4",
     "morgan": "^1.9.1",
-    "pg": "^7.11.0",
-    "pg-promise": "^8.7.2"
+    "pg": "^7.11.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
+    "@babel/node": "^7.5.5",
+    "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "nodemon": "^1.19.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-router-dom": "^5.0.1",
+    "rimraf": "^3.0.0",
+    "style-loader": "^1.0.0",
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4"
   }

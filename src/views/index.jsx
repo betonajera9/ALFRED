@@ -27,6 +27,8 @@ class Form extends Component{
       this.setState({pass: ''});
     })
     .catch(err => console.log(err));
+
+    //No acutliza al momento de apretar el boton
     evt.preventDefault();
   }
 

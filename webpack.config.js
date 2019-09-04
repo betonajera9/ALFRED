@@ -1,18 +1,15 @@
 module.exports = {
   entry: {
-    index: './src/Index.jsx'
+    index: './src/views/index.jsx'
   },
   output: {
-    path: __dirname + '/Public/JS',
-    filename: 'Index.js'
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
+    path: __dirname + './src/public/js',
+    filename: '[name].bundle.js'
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(jsx)$/,
         exclude: /node-modules/,
         use: ['babel-loader']
       }
