@@ -3,12 +3,14 @@ import React, {Component} from 'react';
 import { gql } from 'apollo-boost';
 import { Query} from 'react-apollo';
 
-const UsersQuery = (user, pass) => {
+const UsersQuery = (props) => {
+  console.log('Entro');
+  const {user, pass} = props;
   return (
     <Query
       query={gql`
         {
-          getOneUser(id: 4){
+          getOneUser(id: user, password: pass){
             id
             username
             email
@@ -37,12 +39,12 @@ class Login extends Component{
       'pass': ''
     };
     this.handleLogin = this.handleLogin.bind(this);
-    this.addUserPass = this.addUserPass.bind(this);
+    // this.addUserPass = this.addUserPass.bind(this);
   }
 
   addUserPass(evt) {
-    console.log(this.state);
     evt.preventDefault();
+    return (<h1>hola</h1>);
   }
 
   handleLogin(evt) {
@@ -62,6 +64,7 @@ class Login extends Component{
         <input onChange={this.handleLogin} value={this.state.pass} id='pass' type='password' />
         <br/>
         <button>Log in</button>
+        <UsersQuery user={this.state.user} pass={this.state.pass}/>
       </form>
     );
   }

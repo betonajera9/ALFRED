@@ -2,8 +2,8 @@ import React, { Component }from 'react';
 import { render } from 'react-dom';
 
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import ApolloClient, { gql } from 'apollo-boost';
-import { Query, ApolloProvider} from 'react-apollo';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider} from 'react-apollo';
 
 import Login from './pages/login.jsx';
 
@@ -12,22 +12,6 @@ const client = new ApolloClient({
 });
 
 class Alfred extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      'user': '',
-      'pass': ''
-    };
-  }
-
-  handleLogin(evt) {
-    const {id, value} = evt.target;
-    this.setState({
-      [id]: value
-    });
-  }
-
   render() {
     return (
       <BrowserRouter>
