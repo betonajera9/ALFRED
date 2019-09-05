@@ -18,7 +18,8 @@
     "express": "^4.17.1",
     "graphql": "^14.5.4",
     "morgan": "^1.9.1",
-    "pg": "^7.11.0"
+    "pg": "^7.11.0",
+    "react-apollo": "^3.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

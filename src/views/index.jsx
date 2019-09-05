@@ -1,35 +1,24 @@
 import React, { Component }from 'react';
 import { render } from 'react-dom';
 
-class Form extends Component{
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import ApolloClient, { gql } from 'apollo-boost';
+import { Query, ApolloProvider} from 'react-apollo';
+
+import Login from './pages/login.jsx';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/graphql'
+});
+
+class Alfred extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       'user': '',
       'pass': ''
     };
-    this.handleLogin = this.handleLogin.bind(this);
-    this.addUsrPass = this.addUsrPass.bind(this);
-  }
-
-  addUsrPass(evt) {
-    fetch('/api/login', {
-      method: 'POST',
-      body: JSON.stringify(this.state),
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      this.setState({pass: ''});
-    })
-    .catch(err => console.log(err));
-
-    //No acutliza al momento de apretar el boton
-    evt.preventDefault();
   }
 
   handleLogin(evt) {
@@ -41,17 +30,17 @@ class Form extends Component{
 
   render() {
     return (
-      <form onSubmit={this.addUsrPass}>
-        <label>User Name </label>
-        <input onChange={this.handleLogin} id='user'/>
-        <br/>
-        <label>Password </label>
-        <input onChange={this.handleLogin} value={this.state.pass} id='pass' type='password' />
-        <br/>
-        <button >Log in</button>
-      </form>
+      <BrowserRouter>
+        <Switch>
+          <Route path='/login' component={Login}/>
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
 
-render(<Form/>, document.getElementById('Form'));
+render(
+  <ApolloProvider client={client}>
+    <Alfred/>
+  </ApolloProvider>,
+  document.getElementById('Form'));
