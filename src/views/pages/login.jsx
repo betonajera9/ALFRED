@@ -1,56 +1,36 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import { gql } from 'apollo-boost';
-import { Query} from 'react-apollo';
-
-const UsersQuery = (props) => {
-  console.log('Entro');
-  const {user, pass} = props;
-  return (
-    <Query
-      query={gql`
-        {
-          getOneUser(id: user, password: pass){
-            id
-            username
-            email
-            password
-          }
-        }
-      `}
-    >
-      {({loading, error, data}) => {
-        if (loading) return <p>Loading...</p>;
-        if (error) return <p>Error :(</p>;
-        console.log(data);
-        return data.getOneUser(user => (
-          <p>Hello {user.username}<br/></p>
-        ));
-      }}
-    </Query>
-  );
-};
+import UsersQuery from '../req/user-pass.jsx';
 
 class Login extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      'user': '',
-      'pass': ''
+      user: '',
+      pass: '',
+      login: false,
     };
     this.handleLogin = this.handleLogin.bind(this);
-    // this.addUserPass = this.addUserPass.bind(this);
+    this.addUserPass = this.addUserPass.bind(this);
   }
 
   addUserPass(evt) {
+    this.setState({
+      login: true,
+    });
     evt.preventDefault();
-    return (<h1>hola</h1>);
+  }
+
+  errorLogin() {
+    this.setState({
+      login: false,
+    });
   }
 
   handleLogin(evt) {
-    const {id, value} = evt.target;
+    const { id, value } = evt.target;
     this.setState({
-      [id]: value
+      [id]: value,
     });
   }
 
@@ -64,7 +44,9 @@ class Login extends Component{
         <input onChange={this.handleLogin} value={this.state.pass} id='pass' type='password' />
         <br/>
         <button>Log in</button>
-        <UsersQuery user={this.state.user} pass={this.state.pass}/>
+        {this.state.login ?
+        <UsersQuery user={this.state.user} pass={this.state.pass}/> :
+        null }
       </form>
     );
   }
